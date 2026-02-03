@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contattami - Sandra Farris</title>
+    <meta property="og:title" content="Contattami - Sandra Farris">
+    <meta property="og:description" content="Scopri il mio mondo, il mio percorso nel mondo della tecnologia e i miei progetti.">
+    <meta property="og:image" content="images/S.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-nav">SF</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="contatti.html">Contattami</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h1 class="cv-titolo">Contattami</h1>
+        <p class="form-subtitle">Hai domande o vuoi collaborare? Scrivimi!</p>
+
+        <form class="contatto-form">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="La tua email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="oggetto">Oggetto</label>
+                <input type="text" id="oggetto" name="oggetto" placeholder="Di cosa vuoi parlare?" required>
+            </div>
+
+            <div class="form-group">
+                <label for="messaggio">Messaggio</label>
+                <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi il tuo messaggio qui..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-invio">Invia Messaggio</button>
+        </form>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init("oQXi9gIo3sxAteyU5");
+
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    document.querySelector('.contatto-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var templateParams = {
+            nome: document.getElementById('nome').value,
+            email: document.getElementById('email').value,
+            oggetto: document.getElementById('oggetto').value,
+            messaggio: document.getElementById('messaggio').value
+        };
+
+        emailjs.send('service_m42ysw8', 'template_jeqhft3', templateParams)
+            .then(function(response) {
+                alert('Messaggio inviato con successo! 🎉');
+                document.querySelector('.contatto-form').reset();
+            }, function(error) {
+                alert('Errore nell\'invio del messaggio. Riprova.');
+                console.log('Errore:', error);
+            });
+    });
+</script>
+</body>
+</html>

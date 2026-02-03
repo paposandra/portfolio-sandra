@@ -1,0 +1,389 @@
+$colore-principale: #7c3aed;
+$colore-secondario: #6b21a8;
+$colore-rosa: #ec4899;
+$colore-scuro: #4a1d96;
+$colore-chiaro: rgba(255, 255, 255, 0.3);
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+
+    .logo-nav {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: $colore-principale;
+        font-family: 'Georgia', serif;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+
+        a {
+            text-decoration: none;
+            color: $colore-secondario;
+            font-size: 1.1em;
+            font-weight: bold;
+
+            &:hover {
+                color: $colore-rosa;
+            }
+        }
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #f9a8d4, #e9d5ff, #fef08a);
+    min-height: 100vh;
+    text-align: center;
+    padding: 0 50px 50px 50px;
+    padding-top: 60px;
+}
+
+h1 {
+    color: $colore-principale;
+    font-size: 3em;
+    margin-top: 30px;
+}
+
+.logo-container {
+    margin: 10px auto 0 auto;
+}
+
+.logo {
+    width: 850px;
+    filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.6)) drop-shadow(0 0 60px rgba(236, 72, 153, 0.4));
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.6)) drop-shadow(0 0 60px rgba(236, 72, 153, 0.4));
+    }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 40px rgba(124, 58, 237, 0.8)) drop-shadow(0 0 80px rgba(236, 72, 153, 0.6));
+    }
+}
+
+.bio {
+    max-width: 700px;
+    margin: 40px auto;
+    background: $colore-chiaro;
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+
+    h2 {
+        color: $colore-principale;
+        font-size: 1.8em;
+    }
+
+    p {
+        color: $colore-scuro !important;
+        line-height: 1.8;
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+}
+
+.cv-container {
+    max-width: 800px;
+    margin: 80px auto 50px auto;
+    text-align: left;
+}
+
+.cv-titolo {
+    text-align: center;
+    color: $colore-principale;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+}
+
+.cv-sezione {
+    background: $colore-chiaro;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+
+    h2 {
+        color: $colore-principale;
+        font-size: 1.5em;
+        margin-top: 0;
+        border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+        padding-bottom: 10px;
+    }
+}
+
+.cv-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+.cv-data {
+    color: $colore-rosa !important;
+    font-size: 0.9em !important;
+    margin-bottom: 3px !important;
+    font-style: italic;
+}
+
+.cv-ruolo {
+    color: $colore-scuro !important;
+    font-size: 1.1em !important;
+    font-weight: bold;
+    margin-bottom: 3px !important;
+}
+
+.cv-descrizione {
+    color: $colore-secondario !important;
+    font-size: 0.95em !important;
+    margin: 0 !important;
+}
+
+.cv-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: rgba(124, 58, 237, 0.15);
+    color: $colore-scuro;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 1em;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 80px auto 50px auto;
+}
+
+.form-subtitle {
+    color: $colore-secondario !important;
+    font-size: 1.2em !important;
+    margin-bottom: 30px;
+}
+
+.contatto-form {
+    background: $colore-chiaro;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+
+    label {
+        display: block;
+        color: $colore-scuro;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 1em;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid rgba(124, 58, 237, 0.3);
+        border-radius: 10px;
+        font-size: 1em;
+        font-family: 'Georgia', serif;
+        background: rgba(255, 255, 255, 0.5);
+        color: $colore-scuro;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: $colore-principale;
+        }
+
+        &::placeholder {
+            color: #a78bca;
+        }
+    }
+}
+
+.btn-invio {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, $colore-principale, $colore-rosa);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    margin-top: 10px;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+// Menu mobile - hamburger
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+
+    span {
+        width: 25px;
+        height: 3px;
+        background: $colore-principale;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+}
+
+// Responsive mobile
+@media (max-width: 768px) {
+    .navbar {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            gap: 15px;
+            text-align: center;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    body {
+        padding: 0 20px 50px 20px;
+        padding-top: 60px;
+    }
+
+    .logo {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .bio {
+        padding: 20px;
+    }
+
+    .cv-container {
+        margin: 60px auto 30px auto;
+    }
+
+    .contatto-form {
+        padding: 20px;
+    }
+}// Menu mobile - hamburger
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+
+    span {
+        width: 25px;
+        height: 3px;
+        background: $colore-principale;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+}
+
+// Responsive mobile
+@media (max-width: 768px) {
+    .navbar {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            gap: 15px;
+            text-align: center;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    body {
+        padding: 0 20px 50px 20px;
+        padding-top: 60px;
+    }
+
+    .logo {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .bio {
+        padding: 20px;
+    }
+
+    .cv-container {
+        margin: 60px auto 30px auto;
+    }
+
+    .contatto-form {
+        padding: 20px;
+    }
+}
